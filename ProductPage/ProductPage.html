@@ -1,11 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Slider</title>
+    <link rel="stylesheet" href="./ProductPage.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="slider-container">
+      <button class="slider-btn prev-btn">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="product-slider" id="productSlider">
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgYXJpYS1oaWRkZW49InRydWUiIHJvbGU9ImltZyIgY2xhc3M9ImNhcm91c2VsLWl0ZW0taW1hZ2UtZmVhdHVyZWQtZGVhbHMtaWNvbiIgZGF0YS10ZXN0aWQ9ImZlYXR1cmVkLWRlYWxzLWljb24iIGhlaWdodD0iNTgiIHdpZHRoPSI1OCI+PHBhdGggZD0iTTEyLjQ1IDEyLjc4Yy0xLjQtLjMzLTEuNjMtLjU4LTEuNjMtMS4wNXYtLjAyYzAtLjQ3LjQ0LS43OCAxLjA5LS43OC41MyAwIDEuMDMuMTcgMS41OC41Mi4xMS4wNy4yMi4xLjM0LjEuMzUgMCAuNjItLjI3LjYyLS42MSAwLS4yNy0uMTUtLjQ1LS4yOS0uNTMtLjQ0LS4zLS45Mi0uNDgtMS40NC0uNTggMC0uMDMuMDItLjA1LjAyLS4wOHYtMWMuMDEtLjQxLS4zMy0uNzUtLjc0LS43NXMtLjc1LjM0LS43NS43NXYxYzAgLjAzLjAxLjA1LjAyLjA4LTEuMDYuMjItMS43Ni45OC0xLjc2IDJ2LjAyYzAgMS4zMS44MyAxLjc2IDIuMzYgMi4xMyAxLjMxLjMgMS41NC41NyAxLjU0IDEuMDJ2LjAyYzAgLjUtLjQ4LjgzLTEuMTkuODNzLTEuMzItLjIyLTEuOTMtLjcxYS42My42MyAwIDAgMC0uMzktLjEyYy0uMzUgMC0uNjIuMjctLjYyLjYxIDAgLjIuMS4zOS4yNi41MS41Mi4zOSAxLjEuNjQgMS43Mi43N3YxLjM0YzAgLjQxLjM0Ljc1Ljc1Ljc1cy43NS0uMzQuNzUtLjc1di0xLjI3YzEuMjItLjE4IDEuOTctLjk2IDEuOTctMi4wOXYtLjAyYy0uMDEtMS4wOS0uNjYtMS42OS0yLjI4LTIuMDkiPjwvcGF0aD48cGF0aCBkPSJNMTguMzMgMjIuNWEuNy43IDAgMCAxLS4zNy0uMWwtMy4xMy0xLjc1Yy0uMzYtLjItLjQ5LS42Ni0uMjktMS4wMnMuNjYtLjQ5IDEuMDItLjI5bDEuNzEuOTYtMS4xLTUuNTJjLS4wNS0uMjYuMDMtLjUyLjIzLS43bDQuMTQtMy44Mi01LjYtLjY2YS43NC43NCAwIDAgMS0uNTktLjQzTDEyIDQuMDUgOS42NSA5LjE3Yy0uMTEuMjMtLjM0LjQtLjYuNDNsLTUuNi42NiA0LjE0IDMuODJjLjE5LjE4LjI4LjQ0LjIzLjdsLTEuMSA1LjUyIDEuNzEtLjk2Yy4zNi0uMi44Mi0uMDcgMS4wMi4yOXMuMDcuODItLjI5IDEuMDJMNi4wMyAyMi40Yy0uMjYuMTQtLjU3LjEzLS44MS0uMDVhLjc0Ljc0IDAgMCAxLS4yOS0uNzVsMS4zNC02LjcxLTUuMDMtNC42NGMtLjIxLS4yLS4yOS0uNS0uMi0uNzhzLjMzLS40OC42My0uNTFsNi44LS44IDIuODYtNi4yMmMuMjUtLjUzIDEuMTItLjUzIDEuMzYgMGwyLjg2IDYuMjIgNi44LjhjLjI5LjAzLjU0LjIzLjYyLjUxLjA5LjI4LjAxLjU4LS4yLjc4bC01LjAzIDQuNjQgMS4zNCA2LjcxYy4wNi4yOS0uMDYuNTgtLjI5Ljc1LS4xNC4xLS4zLjE1LS40Ni4xNSI+PC9wYXRoPjwvc3ZnPg=="
+                alt="Shop-All"
+              />
+            </div>
+            <span class="product-name">Shop-All</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgYXJpYS1oaWRkZW49InRydWUiIHJvbGU9ImltZyIgY2xhc3M9ImNhcm91c2VsLWl0ZW0taW1hZ2UtbXktYmJ5LWljb24iIGRhdGEtdGVzdGlkPSJzaG9wLWFsbC1pY29uIiBoZWlnaHQ9IjU4IiB3aWR0aD0iNTgiPjxwYXRoIGQ9Ik0yMS4yNSAyMi41SDEwLjJjLS4zMiAwLS42Mi0uMTItLjg1LS4zM2wtMi45My0yLjcyYy0uMjUtLjIzLS40LS41Ny0uNC0uOTFMNiAxNC41YzAtLjM5LjE4LS43Ni40OS0uOTlsMi45Mi0yLjI1Yy4yMi0uMTcuNDktLjI2Ljc2LS4yNmgxMS4wOGMuNjkgMCAxLjI1LjU2IDEuMjUgMS4yNXY5YzAgLjY5LS41NiAxLjI1LTEuMjUgMS4yNU0xMC4yOSAyMUgyMXYtOC41SDEwLjI1TDcuNSAxNC42MmwuMDIgMy44em0xMC45Ni04LjUiPjwvcGF0aD48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05LjQ1IDE3LjNjLjM5IDAgLjctLjMxLjctLjdzLS4zMS0uNy0uNy0uNy0uNy4zMS0uNy43LjMxLjcuNy43IiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjwvcGF0aD48cGF0aCBkPSJNMS40IDEuMzdoMS42MXYuOTZjLjE2LS4zLjQtLjU2LjczLS43OC4zMi0uMjIuNzItLjMyIDEuMTktLjMyLjQxIDAgLjc2LjA5IDEuMDcuMjcuMy4xOC41NC40Ni43Ljg1LjI1LS4zOS41Ni0uNjguOTUtLjg1LjM4LS4xOC43Ny0uMjYgMS4xNi0uMjYuMjkgMCAuNTYuMDUuODIuMTQuMjUuMDcuNDcuMjIuNjYuNDJzLjM0LjQ1LjQ0Ljc2LjE2LjY2LjE2IDEuMDh2NC4wMWgtMS42VjMuNzljMC0uNDMtLjA5LS43NS0uMjgtLjk0LS4xOC0uMi0uNDQtLjI5LS43OC0uMjktLjE3IDAtLjMzLjAzLS40OS4wOHMtLjI5LjE0LS40MS4yNS0uMjEuMjUtLjI4LjQyLS4xLjM2LS4xLjU5djMuNzRoLTEuNlYzLjc5YzAtLjQzLS4wOS0uNzUtLjI4LS45NC0uMTgtLjItLjQ0LS4yOS0uNzgtLjI5LS4xNyAwLS4zMy4wMy0uNDkuMDgtLjE1LjA1LS4yOS4xNC0uNC4yNS0uMTMuMTEtLjIyLjI1LS4yOS40MnMtLjEuMzYtLjEuNTl2My43NEgxLjR6TTEyLjg1IDEwbDEuMjEtMy0yLjQ4LTUuNjRoMS43M2wxLjYgMy44OSAxLjQ1LTMuODloMS41NkwxNC40IDEwIj48L3BhdGg+PC9zdmc+"
+                alt="Exclusive"
+              />
+            </div>
+            <span class="product-name">Exclusive Deal</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-apple">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6447/6447382_sd.jpg"
+                alt="Apple"
+              />
+            </div>
+            <span class="product-name">Air Pods</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-tv">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/12d1a9e4-7cae-4957-aa57-587fca19c777.jpg"
+                alt="TV"
+              />
+            </div>
+            <span class="product-name">TV</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-laptop">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/2b810a44-822a-4dd1-ae2d-7243d954e406.jpg"
+                alt="Laptop"
+              />
+            </div>
+            <span class="product-name">Laptop</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-games">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/ref1842735-crunchyroll-cope-7646032c-56b8-441b-b380-3fd0568ba4c9.jpg"
+                alt="Games"
+              />
+            </div>
+            <span class="product-name">Games</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-appliances">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6957/6957188_sd.jpg"
+                alt="Appliances"
+              />
+            </div>
+            <span class="product-name">Appliances</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-phone">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6525/6525400_sd.jpg"
+                alt="Cell Phone"
+              />
+            </div>
+            <span class="product-name">i Phone</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-audio">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6472/6472671_rd.jpg"
+                alt="Audio"
+              />
+            </div>
+            <span class="product-name">Audio</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6375/6375660_sd.jpg"
+                alt="Camera"
+              />
+            </div>
+            <span class="product-name">Camera</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6553/6553393_sd.jpg"
+                alt="PowerBank"
+              />
+            </div>
+            <span class="product-name">Power Bank</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/3583/3583073_sd.jpg"
+                alt="speaker"
+              />
+            </div>
+            <span class="product-name">Speaker</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6505/6505155_sd.jpg"
+                alt="Sound-bar"
+              />
+            </div>
+            <span class="product-name">Sound-bar</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/ref-1570786-tv-pol_der-e38fc55f-6bb9-41f3-a026-6d2ae5088c18.jpg"
+                alt="TV"
+              />
+            </div>
+            <span class="product-name">Smart TV</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/4674/4674557_sa.jpg"
+                alt="Bag"
+              />
+            </div>
+            <span class="product-name">Bag's</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/vpe_card_art_app_sale61022-19362f7b-ec84-433b-818f-ed5ffe815331.png"
+                alt="Cards"
+              />
+            </div>
+            <span class="product-name">Cards</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6456/6456424cv11d.jpg;maxHeight=224;maxWidth=262;format=webp"
+                alt="Cables"
+              />
+            </div>
+            <span class="product-name">Cables</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/be31a2b6-4aea-475e-800a-2beebc60129c.jpg;maxHeight=224;maxWidth=262;format=webp"
+                alt="cycle"
+              />
+            </div>
+            <span class="product-name">Cycle</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/2c2afdfd-ba20-4ed2-9e05-27a9c461a4f7.jpg;maxHeight=224;maxWidth=262;format=webp"
+                alt="Radio"
+              />
+            </div>
+            <span class="product-name">Radio</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/f1560d1d-312e-497a-9793-53dd2c8358d4.jpg;maxHeight=224;maxWidth=262"
+                alt="Oven"
+              />
+            </div>
+            <span class="product-name">Oven</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/572e3aa6-4ffe-4b28-bc6f-3947e071ac96.jpg;maxHeight=224;maxWidth=262;format=webp"
+                alt="Mick"
+              />
+            </div>
+            <span class="product-name">MicroPhone</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6498/6498182_sd.jpg;maxHeight=224;maxWidth=262;format=webp"
+                alt="Specs"
+              />
+            </div>
+            <span class="product-name">Specs</span>
+          </div>
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6506/6506305_sd.jpg;maxHeight=224;maxWidth=262;format=webp"
+                alt="Charger"
+              />
+            </div>
+            <span class="product-name">Charger</span>
+          </div>
+
+          <div class="product-container">
+            <div class="product-item product-camera">
+              <img
+                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6585/6585558_sd.jpg;maxHeight=116;maxWidth=116;format=webp"
+                alt="Watch"
+              />
+            </div>
+            <span class="product-name">Watch</span>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn next-btn">&#10095;</button>
+    </div>
+
+    <div class="big-game-container">
+      <div class="Product-text-content">
+        <div class="product-text-p">
+          <p>Get ready for</p>
+          <p>the Big Game</p>
+        </div>
+      </div>
+      <div class="image-content">
+        <img
+          src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/REF-2146485_lifestyle3-1b7bad9a-9cbf-4c21-aa5f-94690dcf6544.jpg"
+          alt="Big Game"
+        />
+      </div>
+    </div>
+
+    <!-- product-cards-container-1 -->
+    <div class="product-cards-container-1">
+      <!-- Card 1 -->
+      <div class="product-card-1">
+        <button class="product-favorite-icon-1">
+          <i class="far fa-heart"></i>
+        </button>
+        <div class="discount-tag">$400 OFF</div>
+        <img
+          src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/d3154864-4a49-409d-838d-71ca55093151.jpg;maxHeight=116;maxWidth=116;format=webp"
+          alt="Samsung TV"
+          class="product-img"
+        />
+        <h3 class="product-title">
+          Samsung 85" Class DU6950 Series Crystal UHD 4K Smart Tizen TV (2024)
+        </h3>
+        <div class="product-price-container">
+          <span class="discounted-price">$698.99</span>
+          <span class="original-price">$1,000.00</span>
+        </div>
+        <button class="product-add-to-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Add to Cart</span>
+        </button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card-1">
+        <div class="discount-tag">$50 OFF</div>
+        <button class="product-favorite-icon-1">
+          <i class="far fa-heart"></i>
+        </button>
+        <img
+          src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/ref-2195327-accessories-pol_der-d9f3e57c-a6ec-4d84-a78f-0999e3fc9957.jpg;maxHeight=224;maxWidth=262;format=webp"
+          alt="TV Wall Mount"
+          class="product-img"
+        />
+        <h3 class="product-title">
+          SANUS Elite - Advanced Tilt 4D TV Wall Mount for Most TVs 42"-90" up
+          to...
+        </h3>
+        <div class="product-price-container">
+          <span class="discounted-price">$99.99</span>
+          <span class="original-price">$140.00</span>
+        </div>
+        <button class="product-add-to-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Add to Cart</span>
+        </button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card-1">
+        <div class="discount-tag">$210 OFF</div>
+        <button class="product-favorite-icon-1">
+          <i class="far fa-heart"></i>
+        </button>
+        <img
+          src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6505/6505155_sd.jpg"
+          alt="Soundbar"
+          class="product-img"
+        />
+        <h3 class="product-title">
+          Samsung - HW-B650/ZA 3.1 Channel Soundbar with Wireless Subwoofer....
+        </h3>
+        <div class="product-price-container">
+          <span class="discounted-price">$189.99</span>
+          <span class="original-price">$390.00</span>
+        </div>
+        <button class="product-add-to-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Add to Cart</span>
+        </button>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card-1">
+        <div class="discount-tag">$30 OFF</div>
+        <button class="product-favorite-icon-1">
+          <i class="far fa-heart"></i>
+        </button>
+        <img
+          src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6957/6957188_sd.jpg"
+          alt="Blender"
+          class="product-img"
+        />
+        <h3 class="product-title">
+          Ninja - Professional Plus Blender DUO with Auto-iQ - Black/Stainless
+          Steel
+        </h3>
+        <div class="product-price-container">
+          <span class="discounted-price">$119.99</span>
+          <span class="original-price">$149.00</span>
+        </div>
+        <button class="product-add-to-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Add to Cart</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Popup for Favorites -->
+    <div id="favorites-popup" class="popup">
+      <span class="popup-text">Added to Favorites!</span>
+    </div>
+  </body>
 </html>
+<script src="./ProductPage.js"></script>
