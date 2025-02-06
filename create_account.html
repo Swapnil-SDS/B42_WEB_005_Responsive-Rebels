@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .create-account-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .create-account-button {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 90%;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .create-account-button:hover {
+            background-color: #0056b3;
+        }
+
+        .or-separator {
+            text-align: center;
+            margin: 20px 0;
+            color: #888;
+        }
+
+        .terms-agreement {
+            font-size: 0.8em;
+            color: #555;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .already-have-account {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup button {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #218838;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="create-account-form">
+        <h1>Create an Account</h1>
+        <p>Shopping for your business? <a href="#">Create a business account</a>.</p>
+
+        <form id="createAccountForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobilePhone">Mobile Phone Number</label>
+                <input type="tel" id="mobilePhone" name="mobilePhone">
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="accountRecovery" name="accountRecovery">
+                <label for="accountRecovery">Use for Account Recovery.</label>
+            </div>
+
+            <a href="choose_signin.html" class="create-account-button" id="createAccountBtn">Create Account</a>
+        </form>
+
+        <div class="or-separator">or</div>
+        <p class="terms-agreement">By continuing you agree to our <a href="#">Terms and Conditions</a>, our <a href="#">Privacy Policy</a>, and the <a href="#">My Best Buy™ Program Terms</a>.</p>
+
+        <p class="already-have-account">Already have an account? <a href="choose_signin.html">Sign in</a></p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="popupOverlay"></div>
+  <div class="popup" id="popup">
+      <p>Please fill in all required fields!</p>
+      <button onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
+      document.getElementById("createAccountBtn").addEventListener("click", function(event) {
+          event.preventDefault();
+
+          const firstName = document.getElementById("firstName").value.trim();
+          const lastName = document.getElementById("lastName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const confirmPassword = document.getElementById("confirmPassword").value.trim();
+          const mobilePhone = document.getElementById("mobilePhone").value.trim();
+
+          if (!firstName || !lastName || !email || !password || !confirmPassword) {
+              document.getElementById("popup").style.display = "block";
+              document.getElementById("popupOverlay").style.display = "block";
+          } else {
+              const userData = {
+                  firstName: firstName,
+                  lastName: lastName,
+                  email: email,
+                  password: password,
+                  mobilePhone: mobilePhone,
+              };
+              localStorage.setItem("userData", JSON.stringify(userData));
+              window.location.href = "choose_signin.html";
+          }
+      });
+
+      function closePopup() {
+          document.getElementById("popup").style.display = "none";
+          document.getElementById("popupOverlay").style.display = "none";
+      }
+  </script>
+</body>
+</html>
