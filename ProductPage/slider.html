@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .product-slider-1-container {
+            width: 60%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            
+        }
+
+        .product-slider-1 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .product-slider-1-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            min-width: 300px;
+            padding: 20px;
+            text-align: start;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+
+        .product-slider-1-discount-tag {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 0px 5px;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .product-slider-1-favorite-icon {
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            background: none;
+            border: 2px solid black;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: black;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-slider-1-img {
+            margin-top: 20px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-slider-1-title {
+            font-size: 12px;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .product-slider-1-price-container {
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .product-slider-1-original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .product-slider-1-discounted-price {
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .product-slider-1-add-to-cart {
+            width: 100%;
+            margin: 5px 0px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            color: blue;
+            display: flex;
+            gap: 5px;
+            font-weight: bold;
+            align-items: center;
+            background-color: white;
+        }
+
+        .product-slider-1-add-to-cart:hover {
+            cursor: pointer;
+            background-color: white;
+        }
+
+        .product-slider-1-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-slider-1-popup-text {
+            font-size: 14px;
+        }
+
+        .product-slider-1-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .product-slider-1-nav.prev {
+            left: 10px;
+        }
+
+        .product-slider-1-nav.next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-slider-1-container">
+        <div class="product-slider-1-container-1-img">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/ref-2195327-accessories-pol_der-d9f3e57c-a6ec-4d84-a78f-0999e3fc9957.jpg;maxHeight=224;maxWidth=262;format=webp" alt="">
+        </div>
+        <div class="product-slider-1">
+            <!-- Card 1 -->
+            <div class="product-slider-1-card">
+                <button class="product-slider-1-favorite-icon">
+                    <i class="far fa-heart"></i>
+                </button>
+                <div class="product-slider-1-discount-tag">$400 OFF</div>
+                <img
+                    src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/d3154864-4a49-409d-838d-71ca55093151.jpg;maxHeight=116;maxWidth=116;format=webp"
+                    alt="Samsung TV"
+                    class="product-slider-1-img"
+                />
+                <h3 class="product-slider-1-title">
+                    Samsung 85" Class DU6950 Series Crystal UHD 4K Smart Tizen TV (2024)
+                </h3>
+                <div class="product-slider-1-price-container">
+                    <span class="product-slider-1-discounted-price">$698.99</span>
+                    <span class="product-slider-1-original-price">$1,000.00</span>
+                </div>
+                <button class="product-slider-1-add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="product-slider-1-card">
+                <div class="product-slider-1-discount-tag">$50 OFF</div>
+                <button class="product-slider-1-favorite-icon">
+                    <i class="far fa-heart"></i>
+                </button>
+                <img
+                    src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/ref-2195327-accessories-pol_der-d9f3e57c-a6ec-4d84-a78f-0999e3fc9957.jpg;maxHeight=224;maxWidth=262;format=webp"
+                    alt="TV Wall Mount"
+                    class="product-slider-1-img"
+                />
+                <h3 class="product-slider-1-title">
+                    SANUS Elite - Advanced Tilt 4D TV Wall Mount for Most TVs 42"-90" up
+                    to...
+                </h3>
+                <div class="product-slider-1-price-container">
+                    <span class="product-slider-1-discounted-price">$99.99</span>
+                    <span class="product-slider-1-original-price">$140.00</span>
+                </div>
+                <button class="product-slider-1-add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="product-slider-1-card">
+                <div class="product-slider-1-discount-tag">$210 OFF</div>
+                <button class="product-slider-1-favorite-icon">
+                    <i class="far fa-heart"></i>
+                </button>
+                <img
+                    src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6505/6505155_sd.jpg"
+                    alt="Soundbar"
+                    class="product-slider-1-img"
+                />
+                <h3 class="product-slider-1-title">
+                    Samsung - HW-B650/ZA 3.1 Channel Soundbar with Wireless Subwoofer....
+                </h3>
+                <div class="product-slider-1-price-container">
+                    <span class="product-slider-1-discounted-price">$189.99</span>
+                    <span class="product-slider-1-original-price">$390.00</span>
+                </div>
+                <button class="product-slider-1-add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="product-slider-1-card">
+                <div class="product-slider-1-discount-tag">$30 OFF</div>
+                <button class="product-slider-1-favorite-icon">
+                    <i class="far fa-heart"></i>
+                </button>
+                <img
+                    src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6957/6957188_sd.jpg"
+                    alt="Blender"
+                    class="product-slider-1-img"
+                />
+                <h3 class="product-slider-1-title">
+                    Ninja - Professional Plus Blender DUO with Auto-iQ - Black/Stainless
+                    Steel
+                </h3>
+                <div class="product-slider-1-price-container">
+                    <span class="product-slider-1-discounted-price">$119.99</span>
+                    <span class="product-slider-1-original-price">$149.00</span>
+                </div>
+                <button class="product-slider-1-add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+        </div>
+        <button class="product-slider-1-nav prev">&#10094;</button>
+        <button class="product-slider-1-nav next">&#10095;</button>
+    </div>
+
+    <!-- Popup for Favorites -->
+    <div id="product-slider-1-popup" class="product-slider-1-popup">
+        <span class="product-slider-1-popup-text">Added to Favorites!</span>
+    </div>
+
+    <script>
+        // Add to Favorites functionality
+        const favoriteIcons = document.querySelectorAll(".product-slider-1-favorite-icon");
+        const popup = document.getElementById("product-slider-1-popup");
+
+        favoriteIcons.forEach((icon) => {
+            icon.addEventListener("click", () => {
+                popup.style.display = "block";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 2000); // Hide popup after 2 seconds
+            });
+        });
+
+        // Slider navigation
+        const slider = document.querySelector('.product-slider-1');
+        const prevButton = document.querySelector('.product-slider-1-nav.prev');
+        const nextButton = document.querySelector('.product-slider-1-nav.next');
+        const cardWidth = document.querySelector('.product-slider-1-card').offsetWidth + 20; // Including margin
+
+        prevButton.addEventListener('click', () => {
+            slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        nextButton.addEventListener('click', () => {
+            slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

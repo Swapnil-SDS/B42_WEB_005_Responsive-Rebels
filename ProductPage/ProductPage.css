@@ -125,7 +125,7 @@ body {
 
 .product-cards-container-1 {
     background-color: #2f5fb3;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   /* height: 500px; */
   width: 100%;
   display: flex;
@@ -183,13 +183,13 @@ body {
   border-radius: 10px;
 }
 
-.product-title {
+.product-title{
   font-size: 12px;
   margin: 15px 0;
   color: #333;
 }
 
-.product-price-container {
+.product-price-container{
   margin: 10px 0;
   display: flex;
   flex-direction: column;
