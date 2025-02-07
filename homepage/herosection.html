@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BestBuy - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0046be, #002b80);
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+             
+    width: 100%;
+    height: 300px;
+    background-image: url('https://cdn.pixabay.com/photo/2020/10/21/18/07/laptop-5673901_640.jpg'), url('https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6612/6612725_sd.jpg;maxHeight=640;maxWidth=550;format=webp'), url('https://pisces.bbystatic.com/image2/BestBuy_US/dam/2164868-explore-biggame-tech-012725-45d12a9e-56b4-4f71-b219-1c1388336eef.jpg;maxHeight=432;maxWidth=432?format=webp'), url('https://pisces.bbystatic.com/image2/BestBuy_US/images/products/438cf2fe-2952-45bd-bac9-1858bbff150e.jpg;maxHeight=640;maxWidth=550;format=webp'); 
+    background-position: left center, center center, right center;
+    background-size: 33.3% auto, 33.3% auto, 33.3% auto;
+    background-repeat: no-repeat;
+}
+            
+        
+        .shop-now {
+            padding: 12px 24px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .shop-now:hover {
+            background: #e68900;
+        }
+        .product-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin: auto;
+        }
+        .product-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 220px;
+            flex: 0 0 auto;
+            margin-right: 15px;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .add-to-cart {
+            padding: 10px 20px;
+            background: #0046be;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .add-to-cart:hover {
+            background: #002b80;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 20px;
+            z-index: 2;
+            transition: background 0.3s;
+        }
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+
+        /* New Section for 4 Products */
+        .product-boxes {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+            flex-wrap: wrap;
+        }
+        .product-box {
+            background: white;
+            width: 23%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+        .product-box:hover {
+            transform: translateY(-5px);
+        }
+        .product-box img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .product-box h3 {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .product-box .price {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #0046be;
+        }
+
+        /* Video Section */
+        .video-container {
+            width: 100%;
+            background: #222;
+            margin-top: 50px;
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-box {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-boxes {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product-box {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider-btn {
+                padding: 10px;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <!------trending deals styles-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 30px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #777;
+            font-size: 18px;
+        }
+
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding-bottom: 20px;
+            scroll-behavior: smooth;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            background: linear-gradient(135deg, #6a5acd, #8a2be2);
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .category-btn.active {
+            background: #4b0082;
+            transform: scale(1.1);
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 15px;
+            text-align: center;
+            height: 50px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
+        }
+
+        .price-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
+        .original-price {
+            color: #7f8c8d;
+            text-decoration: line-through;
+            font-size: 16px;
+            margin-left: 8px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #2980b9;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slider-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: #2980b9;
+        }
+        .img {
+            min-height: 100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Welcome to TechMart</h1>
+        <p>Your one-stop shop for the latest tech products</p>
+        <button class="shop-now">Shop Now</button>
+     
+    </section>
+    
+    <section id="products" class="product-section">
+        <h2>Featured Products</h2>
+        <div class="slider-container">
+            <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="product-slider" id="productSlider">
+                <script>
+                    const products = [
+                        { img: "https://tse1.mm.bing.net/th?id=OIP.qPvfsxXcixw8IWmizogHOAHaEK&pid=Api&P=0&h=180", name: "High Performance Laptop", price: "₹89,999" },
+                        { img: "data:image/jpeg;base64,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", name: "Latest Smartphone", price: "₹69,999" },
+                        { img: "https://tse4.mm.bing.net/th?id=OIP.mH-U2G1DvVqtgPDNJiFrDQHaHa&pid=Api&P=0&h=180", name: "Wireless Headphones", price: "₹9,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5200/5200800_sd.jpg;maxHeight=640;maxWidth=550;format=webp", name: "Latest Tablet", price: "₹34,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6584/6584967_sd.jpg;maxHeight=640;maxWidth=550;format=webp", name: "Smartwatch", price: "₹14,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6583/6583218_sd.jpg;maxHeight=640;maxWidth=550;format=webp", name: "Gaming Console", price: "₹49,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/388969fb-5f25-47a7-a027-8f2ddf410cf4.png;maxHeight=640;maxWidth=550;format=webp", name: "4K Monitor", price: "₹24,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6442/6442841_rd.jpg;maxHeight=150;maxWidth=225", name: "Wi-Fi Router", price: "₹5,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6aa64078-d45b-4761-bf26-db19890a6331.jpg;maxHeight=114;maxWidth=300;format=webp", name: "All-in-One Printer", price: "₹12,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6485/6485246_sd.jpg;maxHeight=150;maxWidth=225", name: "Wireless Mouse", price: "₹1,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6579/6579295_sd.jpg;maxHeight=150;maxWidth=225", name: "Mechanical Keyboard", price: "₹3,499" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6553/6553403_sd.jpg;maxHeight=200;maxWidth=210;format=webp", name: "Power Bank", price: "₹2,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6408/6408299_sd.jpg;maxHeight=150;maxWidth=225", name: "External Hard Drive", price: "₹7,499" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6321/6321794_sd.jpg;maxHeight=200;maxWidth=200;format=webp", name: "HD Webcam", price: "₹4,499" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6555/6555805_sd.jpg;maxHeight=200;maxWidth=144;format=webp", name: "USB Microphone", price: "₹5,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/2326bd69-41fd-4cb0-a5bc-29126457284a.jpg;maxHeight=200;maxWidth=200;format=webp", name: "VR Headset", price: "₹29,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6323/6323759_sd.jpg;maxHeight=150;maxWidth=225", name: "DSLR Camera", price: "₹54,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6552/6552953_sd.jpg;maxHeight=150;maxWidth=225", name: "Portable Projector", price: "₹19,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/aca0a4db-7762-4dfd-ae3b-129e8aabae3a.jpg;maxHeight=150;maxWidth=225", name: "Smart TV", price: "₹79,999" },
+                        { img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6509/6509851ld.jpg;maxHeight=150;maxWidth=225", name: "Bluetooth Speaker", price: "₹3,999" }
+                    ];
+
+                    const productSlider = document.getElementById("productSlider");
+
+                    function createProductHTML(products) {
+                        return products.map(p => `
+                            <div class='product-card'>
+                                <img src='${p.img}' alt='${p.name}'>
+                                <h3>${p.name}</h3>
+                                <p class='price'>${p.price}</p>
+                                <button class='add-to-cart'>Add to Cart</button>
+                            </div>
+                        `).join('');
+                    }
+
+                    productSlider.innerHTML = createProductHTML(products) + createProductHTML(products);
+
+                    let currentIndex = 0;
+                    function moveSlide(direction) {
+                        const productCards = document.querySelectorAll('.product-card');
+                        const totalProducts = productCards.length / 2;
+                        currentIndex = (currentIndex + direction + totalProducts) % totalProducts;
+                        productSlider.style.transform = `translateX(-${currentIndex * 240}px)`;
+                    }
+                </script>
+            </div>
+            <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- New Product Boxes Section -->
+    <section class="product-boxes">
+        <div class="product-box">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6580/6580815_sd.jpg;maxHeight=200;maxWidth=175;format=webp" alt="Wireless Earbuds">
+            <h3>Wireless Earbuds</h3>
+            <p class="price">₹3,499</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-box">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6510/6510163_sd.jpg;maxHeight=200;maxWidth=224;format=webp" alt="Smartwatch">
+            <h3>Smartwatch</h3>
+            <p class="price">₹14,999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-box">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/f197d00f-62d1-41ba-9b81-6e1c748469aa.jpg;maxHeight=143;maxWidth=300;format=webp" alt="High Performance Laptop">
+            <h3>High Performance Laptop</h3>
+            <p class="price">₹89,999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product-box">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6612/6612718_sd.jpg;maxHeight=200;maxWidth=200;format=webp" alt="Latest Smartphone">
+            <h3>Latest Smartphone</h3>
+            <p class="price">₹69,999</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </section>
+
+        <!-- Video Section -->
+        <section class="video-container">
+            <h2>Watch Our Video</h2>
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="TechMart Introduction Video" frameborder="0" allowfullscreen></iframe>
+        </section>
+    
+        <!-- New Product Boxes Section after Video -->
+        <section class="product-boxes">
+            <div class="product-box">
+                <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6386/6386014_rd.jpg;maxHeight=200;maxWidth=239;format=webp" alt="Wireless Earbuds">
+                <h3>Bluetooth vr_headset</h3>
+                <p class="price">₹3,499</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-box">
+                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRQqg0BeLU9E9pJTCG_iCotuEGUNG8iYX-Di8L4H0FMLmgfDv6U353k1GvrMcj5pDQHTZMte0lAFm35kyXWDfCSZTJesHuJVqAU8LbhBDM&usqp=CAs" alt="Smartwatch">
+                <h3>Smartwatch</h3>
+                <p class="price">₹14,999</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-box">
+                <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6533/6533617cv11d.jpg;maxHeight=200;maxWidth=200;format=webp" alt="High Performance Laptop">
+                <h3>I Pad</h3>
+                <p class="price">₹89,999</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-box">
+                <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6509/6509650_sd.jpg;maxHeight=121;maxWidth=300;format=webp" alt="Latest Smartphone">
+                <h3>Mac Book Air</h3>
+                <p class="price">₹69,999</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+        </section>
+        <div class="container">
+            <div class="header">
+                <h1>Trending Deals</h1>
+                <p>See what deals are selling fast</p>
+            </div>
+    
+            <div class="categories" id="categorySlider">
+                <button class="category-btn active">TV & Home Theater</button>
+                <button class="category-btn">Computers & Tablets</button>
+                <button class="category-btn">Video Games</button>
+                <button class="category-btn">Appliances</button>
+                <button class="category-btn">Cell Phones</button>
+                <button class="category-btn">Audio</button>
+                <button class="category-btn">Cameras & Drones</button>
+            </div>
+    
+            <div class="products-container" id="productsSlider"></div>
+        </div>
+    
+        <!-----treading deals script file-->
+
+    <script>
+        const productsData = {
+            "TV & Home Theater": [
+                { name: "Samsung 85\" Crystal UHD", price: 79999, originalPrice: 109999, discount: 30000, image: "https://tse4.mm.bing.net/th?id=OIP.308BYWdGXH1nAStON9d8kwHaHa&pid=Api&P=0&h=180" },
+                { name: "LG 65\" 4K UHD", price: 34999, originalPrice: 59999, discount: 25000, image: "https://tse1.mm.bing.net/th?id=OIP.QxubuLXeUcm97rCJG9zSBQHaHa&pid=Api&P=0&h=180" },
+                { name: "Sony 65\" OLED", price: 199999, originalPrice: 249999, discount: 50000, image:"https://tse1.mm.bing.net/th?id=OIP.rMcMaNiws1jzx99mTrt5SgHaHa&pid=Api&P=0&h=180" },
+                { name: "Vizio 75\" 4K Smart TV", price: 109999, originalPrice: 149999, discount: 40000, image: "https://i5.walmartimages.com/asr/752a671d-5a16-4ff9-926e-a39115be08e0_2.3d40f344fca07efd09e306f97379869b.jpeg" }
+            ],
+            "Computers & Tablets": [
+                { name: "Apple MacBook Pro", price: 129999, originalPrice: 149999, discount: 20000, image: "https://tse3.mm.bing.net/th?id=OIP.aUTxWI3JYHqBbbK_5GEhcQHaHa&pid=Api&P=0&h=180" },
+                { name: "Dell XPS 13", price: 99999, originalPrice: 129999, discount: 30000, image: "https://tse2.mm.bing.net/th?id=OIP.yteU-WQwKjnPl9hD7cbujwHaF3&pid=Api&P=0&h=180" },
+                { name: "Microsoft Surface Pro 8", price: 109999, originalPrice: 129999, discount: 20000, image: "https://tse4.mm.bing.net/th?id=OIP.Wfb6KGpkfoqW5gIY8XNmXwAAAA&pid=Api&P=0&h=180" },
+                { name: "Lenovo ThinkPad X1 Carbon", price: 149999, originalPrice: 169999, discount: 20000, image: "https://tse2.mm.bing.net/th?id=OIP.lvxa_DkpDXyLFdxyQmblsAHaHa&pid=Api&P=0&h=180" }
+            ],
+            "Video Games": [
+                { name: "PS5 Console", price: 49999, originalPrice: 59999, discount: 10000, image: "https://tse1.mm.bing.net/th?id=OIP.yQPhD0GfY5ctfALpBZj_rwHaFj&pid=Api&P=0&h=180" },
+                { name: "Xbox Series X", price: 49999, originalPrice: 54999, discount: 5000, image: "https://tse1.mm.bing.net/th?id=OIP.IQ9JzBUCPCapxWk2Rhpk_wHaHa&pid=Api&P=0&h=180" },
+                { name: "Nintendo Switch OLED", price: 34999, originalPrice: 39999, discount: 5000, image: "https://tse1.mm.bing.net/th?id=OIP.B3dzcN0kHFPy4ONgMmHUygHaEK&pid=Api&P=0&h=180" },
+                { name: "PlayStation VR2", price: 54999, originalPrice: 59999, discount: 5000, image: "https://tse1.mm.bing.net/th?id=OIP.zLW6qGNTbN8FHcfdv7yl0wHaEo&pid=Api&P=0&h=180" }
+            ],
+            "Appliances": [
+                { name: "Dyson V11 Vacuum Cleaner", price: 59999, originalPrice: 69999, discount: 10000, image: "https://tse4.mm.bing.net/th?id=OIP.nl8PuMKa1EG-TEuafHRw6wHaEH&pid=Api&P=0&h=180" },
+                { name: "Samsung 4-Door Fridge", price: 299999, originalPrice: 349999, discount: 50000, image: "https://tse2.mm.bing.net/th?id=OIP.sgaGcMOAiWL_UDdTsUusfgAAAA&pid=Api&P=0&h=180" },
+                { name: "Whirlpool Washer", price: 79999, originalPrice: 99999, discount: 20000, image: "https://tse1.mm.bing.net/th?id=OIP.y4wX5bAMWX0dTI1qLXvlZgHaHa&pid=Api&P=0&h=180" },
+                { name: "Bosch Dishwasher", price: 89999, originalPrice: 109999, discount: 20000, image: "https://tse1.mm.bing.net/th?id=OIP.DhsOR4h8ZuVmFe4GlQdyZwHaFj&pid=Api&P=0&h=180" }
+            ],
+            "Cell Phones": [
+                { name: "iPhone 14 Pro Max", price: 109999, originalPrice: 129999, discount: 20000, image: "https://tse3.mm.bing.net/th?id=OIP.KyrBu1s2mkrqDl3Bdo8QtAHaHa&pid=Api&P=0&h=180" },
+                { name: "Samsung Galaxy S23", price: 89999, originalPrice: 99999, discount: 10000, image: "https://tse2.mm.bing.net/th?id=OIP.DuVDSuaaqP7BWC2YDuJC3wHaFj&pid=Api&P=0&h=180" },
+                { name: "Google Pixel 8", price: 69999, originalPrice: 79999, discount: 10000, image: "https://tse3.mm.bing.net/th?id=OIP.GDPSY2Q7n-dLCskNCff1QQHaEK&pid=Api&P=0&h=180" },
+                { name: "OnePlus 11", price: 74999, originalPrice: 84999, discount: 10000, image: "https://tse4.mm.bing.net/th?id=OIP.Mb2acl8odUxuPgNHOATl7wHaE8&pid=Api&P=0&h=180" }
+            ],
+            "Audio": [
+                { name: "Bose QuietComfort 45", price: 32999, originalPrice: 37999, discount: 5000, image: "https://tse3.mm.bing.net/th?id=OIP.wd-QBW1dYMIoWV_YuVi2MQHaGT&pid=Api&P=0&h=180" },
+                { name: "Sony WH-1000XM5", price: 34999, originalPrice: 39999, discount: 5000, image: "https://www.sony-asia.com/image/105762b0f0d9f64f74abc7889ab22fb3?fmt=pjpeg&wid=1014&hei=396&bgcolor=F1F5F9&bgc=F1F5F9" },
+                { name: "Sennheiser Momentum 3", price: 39999, originalPrice: 44999, discount: 5000, image: "https://tse4.mm.bing.net/th?id=OIP.xImC-7fosqXSr8ZuOf3XRwHaHa&pid=Api&P=0&h=180" },
+                { name: "Apple AirPods Pro 2", price: 24999, originalPrice: 27999, discount: 3000, image: "https://tse2.mm.bing.net/th?id=OIP.d_na-E0XoGJRXPeU1okR6AHaEo&pid=Api&P=0&h=180" }
+            ],
+            "Cameras & Drones": [
+                { name: "Canon EOS R5", price: 379999, originalPrice: 429999, discount: 50000, image: "https://tse2.mm.bing.net/th?id=OIP.CECpgeLeGrSpf1Ejl060IwHaFj&pid=Api&P=0&h=180" },
+                { name: "DJI Mavic Air 2", price: 79999, originalPrice: 89999, discount: 10000, image: "https://www-cdn.djiits.com/cms/uploads/d777733b92483ace26da02b1ad30c759.png" },
+                { name: "Sony Alpha A7 III", price: 179999, originalPrice: 199999, discount: 20000, image: "https://tse2.mm.bing.net/th?id=OIP.I4hEwlRD2uW_5iH7Ye4roQHaGH&pid=Api&P=0&h=180" },
+                { name: "GoPro Hero 11", price: 49999, originalPrice: 54999, discount: 5000, image: "https://fotocentreindia.com/wp-content/uploads/2022/12/GoPro-Hero-11-Mini-Action-Camera-Online-Buy-Mumbai-India-2.jpg" }
+            ]
+        };
+
+        const categoryButtons = document.querySelectorAll(".category-btn");
+        const productsSlider = document.getElementById("productsSlider");
+
+        let activeCategory = "TV & Home Theater";
+
+        function createProductCards() {
+            productsSlider.innerHTML = "";
+            productsData[activeCategory].forEach(product => {
+                const card = document.createElement("div");
+                card.className = "product-card";
+                card.innerHTML = `
+                    <span class="discount-badge">₹${product.discount} off</span>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <h3 class="product-name">${product.name}</h3>
+                    <div class="price-container">
+                        <span class="current-price">₹${product.price}</span>
+                        <span class="original-price">₹${product.originalPrice}</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                `;
+                productsSlider.appendChild(card);
+            });
+        }
+
+        categoryButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                categoryButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                activeCategory = button.textContent;
+                createProductCards();
+            });
+        });
+
+        createProductCards(); // Initial product load
+    </script>
+</body>
+</html>
