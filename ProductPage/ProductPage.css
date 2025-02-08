@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 0;
+  padding: 5px;
   box-sizing: border-box;
 }
 body {
@@ -73,20 +73,24 @@ body {
 /* big-game-container Part */
 .big-game-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 500px;
+  align-items: stretch;
+  /* border: 2px solid rgb(0, 0, 0); */
   width: 100%;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-  border: 2px solid red;
+  padding: 0;
+  margin: 0;
+}
+
+.Product-text-content,
+.image-content {
+  flex: 5; /* Both divs take equal width */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 2px solid red; */
+  width: 10px;
 }
 
 .Product-text-content {
-  flex: 1;
-  height: 460px;
-  margin-bottom: 45px;
   background-color: #2f5fb3;
   border-radius: 20px 0px 0px 0px;
   background-image: linear-gradient(
@@ -98,17 +102,13 @@ body {
 }
 
 .Product-text-content p {
-  font-size: 5rem;
-  margin: 0;
-  padding: 0px;
+  /* padding-right: 250px; */
+  font-size: 3rem;
   color: #fbf400;
 }
 
 .image-content {
-  flex: 1;
   text-align: right;
-
-  height: 500px;
 }
 
 .image-content img {
@@ -116,22 +116,23 @@ body {
   height: auto;
   border-radius: 0px 20px 0px 0px;
 }
+
 .product-text-p {
-  margin: 50px;
-  margin-top: 130px;
+  text-align: center;
 }
 
 /* 1 Cards CSS Product Page */
 
 .product-cards-container-1 {
-    background-color: #2f5fb3;
+  background-color: #2f5fb3;
   /* border: 2px solid red; */
   /* height: 500px; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   justify-content: space-evenly;
+  padding: 22px;
 }
 
 .product-card-1 {
@@ -183,13 +184,13 @@ body {
   border-radius: 10px;
 }
 
-.product-title{
+.product-title {
   font-size: 12px;
   margin: 15px 0;
   color: #333;
 }
 
-.product-price-container{
+.product-price-container {
   margin: 10px 0;
   display: flex;
   flex-direction: column;
@@ -243,3 +244,239 @@ body {
 .popup-text {
   font-size: 14px;
 }
+
+/* slider Top Pcik */
+
+.product-slider-1-parent-container {
+  /* border: 2px solid green; */
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background-color: #1c252c;
+}
+.product-slider-img-1-wrapper {
+  /* border: 2px solid teal; */
+  width: 25%; /* 30% width of parent container */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10%;
+}
+
+.product-slider-img-1-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-slider-img-1-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-slider-1-container {
+  /* border: 2px solid red; */
+  width: 80%; /* 70% width of parent container */
+  height: 100%;
+  position: relative;
+  padding: 0 60px;
+  overflow: hidden;
+}
+
+.product-slider-1-wrapper,
+.product-slider-2-wrapper {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  gap: 25px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.product-slider-1-card,
+.product-slider-2-card {
+  background-color: #fff;
+  /* border: 1px solid #ddd; */
+  border-radius: 10px;
+  width: calc(20% - 20px);
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  /* border: 2px solid black; */
+  scroll-snap-align: start;
+}
+
+.product-slider-1-discount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 0 5px;
+  font-size: 14px;
+}
+
+.product-slider-1-favorite {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  background: none;
+  /* border: 2px solid black; */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  color: black; /* Default color */
+  /* border-color: black; Default border color */
+  transition: all 0.3s ease; /* Smooth transition for color changes */
+}
+
+.product-slider-1-img {
+  margin-top: 20px;
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+}
+
+.product-slider-1-title {
+  font-size: 12px;
+  margin: 15px 0;
+  color: #1c252c;
+  min-height: 60px;
+  letter-spacing: 0.4px;
+}
+
+.product-slider-1-pricing {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-slider-1-original {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 12px;
+}
+
+.product-slider-1-discounted {
+  font-size: 15px;
+  color: #1c252c;
+  font-weight: bold;
+}
+
+.product-slider-1-cart-btn {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  color: blue;
+  display: flex;
+  /* gap: 5; */
+  font-weight: bold;
+  /* align-items: center; */
+  background-color: white;
+  padding: 12px 0;
+  justify-content: start;
+}
+
+.product-slider-1-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: black;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.product-slider-1-prev,
+.product-slider-2-prev {
+  left: 20px;
+}
+
+.product-slider-1-next,
+.product-slider-2-next {
+  right: 20px;
+}
+
+.product-slider-1-popup {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #28a745;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.membership-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+.membership-text {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+.best-buy {
+  font-weight: bold;
+}
+.yellow-dot {
+  color: yellow;
+}
+.text-bold {
+  font-weight: bold;
+}
+.exclusions {
+  font-size: 12px;
+  color: gray;
+}
+.join-btn {
+  background-color: yellow;
+  padding: 8px 15px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.join-btn:hover {
+  background-color: gold;
+}
+
+/*  */
