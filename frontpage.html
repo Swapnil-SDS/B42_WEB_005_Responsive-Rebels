@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BestBuy - Select Country</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #0d47a1, #1976d2);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .navbar {
+            background: black;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            padding-right: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+        }
+
+        .container {
+            margin-top: 80px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 10px 0;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .flags {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 20px;
+        }
+
+        .flag {
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+
+        .flag:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .flag img {
+            width: 200px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .flag img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 16px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1.5s forwards;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer a:hover {
+            color: #ffd700;
+        }
+    </style>
+    <script>
+        const translations = {
+            en: {
+                title: "Hello! Choose a country.",
+                india: "India",
+                usa: "United States",
+                footer: "Shopping in the U.S.? International customers can shop on <a href='#'>www.BestBuy.com</a> and have orders shipped to any U.S. address or U.S. store. <a href='#'>See More Details</a>",
+            },
+            fr: {
+                title: "Bonjour! Choisissez un pays.",
+                india: "Inde",
+                usa: "États-Unis",
+                footer: "Shopping aux États-Unis? Les clients internationaux peuvent acheter sur <a href='#'>www.BestBuy.com</a> et faire livrer leurs commandes à n'importe quelle adresse ou magasin aux États-Unis. <a href='#'>Voir plus de détails</a>",
+            },
+            es: {
+                title: "¡Hola! Elige un país.",
+                india: "India",
+                usa: "Estados Unidos",
+                footer: "¿Compras en EE.UU.? Los clientes internacionales pueden comprar en <a href='#'>www.BestBuy.com</a> y recibir pedidos en cualquier dirección o tienda de EE.UU. <a href='#'>Ver más detalles</a>",
+            },
+            hi: {
+                title: "नमस्ते! एक देश चुनें।",
+                india: "भारत",
+                usa: "संयुक्त राज्य",
+                footer: "संयुक्त राज्य में खरीदारी कर रहे हैं? अंतर्राष्ट्रीय ग्राहक <a href='#'>www.BestBuy.com</a> पर खरीदारी कर सकते हैं और अपने ऑर्डर किसी भी अमेरिकी पते या स्टोर पर मंगवा सकते हैं। <a href='#'>अधिक जानकारी देखें</a>",
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById("title").innerHTML = translations[lang].title;
+            document.getElementById("india").innerText = translations[lang].india;
+            document.getElementById("usa").innerText = translations[lang].usa;
+            document.getElementById("footer").innerHTML = translations[lang].footer;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#" onclick="changeLanguage('en')">English</a>
+        <a href="#" onclick="changeLanguage('fr')">Français</a>
+        <a href="#" onclick="changeLanguage('es')">Español</a>
+        <a href="#" onclick="changeLanguage('hi')">हिन्दी</a>
+    </div>
+    <div class="container">
+        <h1 id="title">Hello!<br>Choose a country.</h1>
+        <div class="flags">
+            <div class="flag">
+                <a href="./index.html"> <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
+                        alt="India"></a>
+                <p id="india">India</p>
+            </div>
+            <div class="flag">
+                <a href="./index.html"><img
+                        src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                        alt="United States"></a>
+                <p id="usa">United States</p>
+            </div>
+        </div>
+        <div class="footer" id="footer">
+            <p><strong>Shopping in the U.S.?</strong><br>International customers can shop on <a
+                    href="#">www.BestBuy.com</a> and have orders shipped to any U.S. address or U.S. store. <a
+                    href="#">See More Details</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

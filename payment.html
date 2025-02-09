@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Gateway</title>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="payment-container">
+            <div class="header">
+                <h1 class="animate-slide">Secure Payment Gateway</h1>
+                <div class="card-types">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+
+            <form id="paymentForm" class="payment-form">
+                <div class="form-group animate-pop">
+                    <label>Card Number</label>
+                    <input type="text" id="cardNumber" maxlength="19" placeholder="4242 4242 4242 4242">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group animate-pop delay-1">
+                        <label>Expiration Date</label>
+                        <input type="text" id="expiryDate" placeholder="MM/YY">
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group animate-pop delay-2">
+                        <label>CVV</label>
+                        <input type="password" id="cvv" maxlength="3" placeholder="123">
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group animate-pop delay-3">
+                    <label>Cardholder Name</label>
+                    <input type="text" id="cardName" placeholder="John Doe">
+                    <div class="error-message"></div>
+                </div>
+
+                <button type="submit" class="pay-btn animate-slide-up">
+                    <span class="btn-text">Pay Now</span>
+                    <div class="loader hidden"></div>
+                </button>
+            </form>
+        </div>
+
+        <div class="checkout-summary animate-slide-right">
+            <h2>Order Summary</h2>
+            <div class="summary-items">
+                <div class="summary-item">
+                    <span>Product 1</span>
+                    <span>$49.99</span>
+                </div>
+                <div class="summary-item">
+                    <span>Product 2</span>
+                    <span>$29.99</span>
+                </div>
+            </div>
+            <div class="total">
+                <span>Total:</span>
+                <span>$79.98</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-overlay hidden">
+        <div class="success-message">
+            <div class="check-animation">
+                <div class="check-circle"></div>
+                <div class="check-stem"></div>
+                <div class="check-kick"></div>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase</p>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>

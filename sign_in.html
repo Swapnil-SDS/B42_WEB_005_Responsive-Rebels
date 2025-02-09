@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-in</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 350px;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .email-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="email"],
+      input[type="text"],
+      input[type="password"] {
+        width: calc(100% - 10px);
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      .last-digits {
+        display: flex;
+        gap: 5px;
+      }
+
+      .last-digits input {
+        width: auto;
+        flex-grow: 1;
+      }
+
+      .signin-options label {
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .cancel-button {
+        background-color: #eee;
+        color: #333;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .legal-text {
+        font-size: 12px;
+        color: #777;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .password-section,
+      .phone-section {
+        display: none;
+      }
+
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        text-align: center;
+        z-index: 1000;
+      }
+
+      .popup button {
+        margin-top: 10px;
+        background-color: #28a745;
+      }
+
+      .popup button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Choose a sign-in method</h2>
+      <div class="email-header">
+        <label for="email">Email Address</label>
+        <a href="#">Not You?</a>
+      </div>
+      <input type="email" id="email" value="" />
+
+      <div class="signin-options">
+        <label>
+          <input type="radio" name="signin_method" value="phone" /> Text a code
+          to my account phone number
+        </label>
+        <div class="phone-section">
+          <div class="last-digits">
+            <input type="text" placeholder="*******" />
+            <input type="text" placeholder="Last 4 Digits" />
+          </div>
+          <input type="text" placeholder="Last Name" />
+        </div>
+
+        <label>
+          <input type="radio" name="signin_method" value="email" /> Send a code
+          to my email
+        </label>
+
+        <label>
+          <input type="radio" name="signin_method" value="link" /> Email a
+          sign-in link
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="signin_method"
+            value="password"
+            id="password_radio"
+          />
+          Use password
+        </label>
+        <div class="password-section">
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+      </div>
+
+      <button type="submit" id="continue-btn">Continue</button>
+      <button type="button" class="cancel-button">Cancel</button>
+
+      <div class="legal-text">
+        By continuing you agree to our Terms and Conditions, our Privacy Policy,
+        and the My Best Buy Program Terms.<br />
+        Message and data rates may apply. See Best Buy Account Recovery terms
+        and conditions. For help, text HELP to 332211.
+      </div>
+    </div>
+
+    <div class="popup" id="popup">
+      <p>Login Successful!</p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+      const phoneSection = document.querySelector(".phone-section");
+      const passwordSection = document.querySelector(".password-section");
+      const radioButtons = document.querySelectorAll(
+        'input[name="signin_method"]'
+      );
+      const continueBtn = document.getElementById("continue-btn");
+      const passwordInput = document.getElementById("password");
+      const popup = document.getElementById("popup");
+      const passwordRadio = document.getElementById("password_radio");
+      const emailInput = document.getElementById("email");
+
+      //Pre-populate email from URL parameter, if present
+      const urlParams = new URLSearchParams(window.location.search);
+      const emailFromParams = urlParams.get("email");
+      if (emailFromParams) {
+        emailInput.value = emailFromParams;
+      }
+
+      radioButtons.forEach((radio) => {
+        radio.addEventListener("change", () => {
+          phoneSection.style.display =
+            radio.value === "phone" ? "block" : "none";
+          passwordSection.style.display =
+            radio.value === "password" ? "block" : "none";
+        });
+      });
+
+      continueBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const selectedMethod = document.querySelector(
+          'input[name="signin_method"]:checked'
+        ).value;
+
+        if (selectedMethod === "password") {
+          const enteredPassword = passwordInput.value.trim();
+          const userDataString = localStorage.getItem("userData");
+
+          if (userDataString) {
+            const userData = JSON.parse(userDataString);
+            const savedPassword = userData.password;
+
+            if (enteredPassword === savedPassword) {
+              showPopup();
+            } else {
+              alert("Incorrect password. Please try again.");
+            }
+          } else {
+            alert("No user data found in local storage.");
+          }
+        } else {
+          alert("Proceeding with other sign-in method.");
+        }
+      });
+
+      function showPopup() {
+        popup.style.display = "block";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000);
+      }
+
+      function closePopup() {
+        popup.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
